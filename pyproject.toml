@@ -1,0 +1,10 @@
+[project]
+name = "verity-ranker"
+version = "0.1.0"
+description = "V1 baseline for evidence-aware candidate ranking"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+verity-ranker = "verity_ranker.cli:main"
+

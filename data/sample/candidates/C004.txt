@@ -1,0 +1,7 @@
+Candidate ID: C004
+Name: Jordan Blake
+
+Backend engineer with FastAPI and cloud deployment experience. Built REST APIs, CI pipelines, and Docker images for internal tools. Limited direct machine learning experience, but collaborated with data scientists to expose model outputs through APIs.
+
+Skills: Python, FastAPI, Docker, cloud deployment, CI/CD, backend engineering
+

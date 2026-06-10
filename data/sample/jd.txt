@@ -1,0 +1,4 @@
+Machine Learning Engineer
+
+We need a Machine Learning Engineer who can build practical ML systems, evaluate models, and deploy APIs. Required skills include Python, machine learning, model evaluation, FastAPI, and production engineering. Experience with Docker, retrieval systems, embeddings, and cloud deployment is preferred. The role needs someone who can move beyond notebooks and build reliable, testable systems.
+

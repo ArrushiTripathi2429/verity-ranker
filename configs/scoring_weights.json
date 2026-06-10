@@ -1,0 +1,8 @@
+{
+  "required_skill_fit": 0.45,
+  "preferred_skill_fit": 0.20,
+  "experience_depth": 0.15,
+  "seniority_signal": 0.10,
+  "achievement_signal": 0.10
+}
+

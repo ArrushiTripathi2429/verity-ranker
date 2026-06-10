@@ -1,0 +1,7 @@
+Candidate ID: C002
+Name: Sam Morgan
+
+Data analyst with strong SQL, dashboarding, and business reporting experience. Built KPI dashboards and automated weekly reporting. Some Python scripting for data cleaning. No direct experience deploying ML APIs or running model evaluation workflows.
+
+Skills: SQL, Python, dashboards, reporting
+

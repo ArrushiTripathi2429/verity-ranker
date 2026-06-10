@@ -1,0 +1,7 @@
+Candidate ID: C003
+Name: Taylor Chen
+
+Junior ML candidate with internship experience in notebooks, supervised learning, and basic model training. Comfortable with Python and scikit-learn. Has evaluated classification models in academic projects but has limited deployment and API experience.
+
+Skills: Python, machine learning, model training, model evaluation, notebooks
+

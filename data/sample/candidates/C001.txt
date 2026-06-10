@@ -1,0 +1,7 @@
+Candidate ID: C001
+Name: Alex Rivera
+
+Machine Learning Engineer with 3 years of experience building Python ML services. Built model evaluation pipelines, FastAPI inference APIs, and Docker-based deployments. Created retrieval prototypes using embeddings and vector search. Added tests for preprocessing and inference code. Worked with product teams to convert notebooks into production-ready services.
+
+Skills: Python, machine learning, model evaluation, FastAPI, Docker, embeddings, retrieval, testing
+
