@@ -29,9 +29,6 @@ from ai_hiring_ranker.jd_intelligence.schemas import (
 SAMPLE_JD_PATH = ROOT / "data" / "sample" / "jd.txt"
 
 
-# ---------------------------------------------------------------------------
-# Helpers
-# ---------------------------------------------------------------------------
 
 
 def make_jd(text: str) -> JDInput:
@@ -42,10 +39,6 @@ def load_sample_jd() -> JDInput:
     from ai_hiring_ranker.ingestion.loader import load_jd
     return load_jd(SAMPLE_JD_PATH)
 
-
-# ---------------------------------------------------------------------------
-# Schema tests
-# ---------------------------------------------------------------------------
 
 
 class TestSkillEntry:
@@ -83,9 +76,6 @@ class TestHiringProfile:
         assert profile.required_skills == []
 
 
-# ---------------------------------------------------------------------------
-# Fallback extraction tests
-# ---------------------------------------------------------------------------
 
 
 class TestFallbackExtraction:
