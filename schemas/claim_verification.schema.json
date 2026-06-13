@@ -1,0 +1,72 @@
+{
+  "title": "ClaimVerificationReport",
+  "description": "Verification report for one candidate produced by Layer 5.",
+  "type": "object",
+  "required": ["candidate_id", "claims", "verified_at"],
+  "properties": {
+    "candidate_id": { "type": "string" },
+    "candidate_name": { "type": "string" },
+    "github_url": { "type": ["string", "null"] },
+    "kaggle_url": { "type": ["string", "null"] },
+    "github_checked": { "type": "boolean" },
+    "verified_at": { "type": "string", "format": "date-time" },
+    "error_notes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["candidate_id", "skill", "status", "confidence"],
+        "properties": {
+          "candidate_id": { "type": "string" },
+          "skill": { "type": "string" },
+          "claim_text": { "type": "string" },
+          "status": {
+            "type": "string",
+            "enum": ["verified", "weak", "inferred", "unsupported", "pending"]
+          },
+          "confidence": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+          "reasoning": { "type": "string" },
+          "verified_at": { "type": "string", "format": "date-time" },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["source", "relevance_score"],
+              "properties": {
+                "source": {
+                  "type": "string",
+                  "enum": [
+                    "resume",
+                    "github_repo",
+                    "github_commit",
+                    "github_file",
+                    "kaggle",
+                    "portfolio",
+                    "inferred"
+                  ]
+                },
+                "skill": { "type": ["string", "null"] },
+                "url": { "type": ["string", "null"] },
+                "snippet": { "type": "string" },
+                "file_path": { "type": ["string", "null"] },
+                "commit_sha": { "type": ["string", "null"] },
+                "recency_years": { "type": ["number", "null"], "minimum": 0 },
+                "relevance_score": {
+                  "type": "number",
+                  "minimum": 0.0,
+                  "maximum": 1.0
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

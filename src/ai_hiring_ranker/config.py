@@ -56,6 +56,62 @@ class HyDEConfig(BaseModel):
     temperature: float = 0.7
 
 
+class GitHubVerificationConfig(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
+    check_commits: bool = True
+    check_file_types: bool = True
+    check_readme: bool = True
+    check_tests: bool = True
+    recency_cutoff_years: int = 3
+
+
+class VerificationLabelThreshold(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
+    description: str = ""
+    min_confidence: float = 0.0
+
+
+class VerificationLabelsConfig(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
+    verified: VerificationLabelThreshold = Field(
+        default_factory=lambda: VerificationLabelThreshold(
+            description="Direct code/commit evidence found; recent and relevant.",
+            min_confidence=0.75,
+        )
+    )
+    weak: VerificationLabelThreshold = Field(
+        default_factory=lambda: VerificationLabelThreshold(
+            description="Evidence exists but is indirect, old, or low volume.",
+            min_confidence=0.40,
+        )
+    )
+    inferred: VerificationLabelThreshold = Field(
+        default_factory=lambda: VerificationLabelThreshold(
+            description="Skill inferred from adjacent evidence.",
+            min_confidence=0.20,
+        )
+    )
+    unsupported: VerificationLabelThreshold = Field(
+        default_factory=lambda: VerificationLabelThreshold(
+            description="No evidence found for the claim.",
+            min_confidence=0.0,
+        )
+    )
+
+
+class VerificationConfig(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
+    github: GitHubVerificationConfig = Field(default_factory=GitHubVerificationConfig)
+    verification_labels: VerificationLabelsConfig = Field(
+        default_factory=VerificationLabelsConfig
+    )
+    proxy_bias_flags: list[str] = Field(default_factory=list)
+
+
 class ModelsConfig(BaseModel):
     model_config = ConfigDict(extra="ignore")
 
@@ -104,3 +160,10 @@ def get_embedding_config() -> EmbeddingConfig:
 
 def get_hyde_config() -> HyDEConfig:
     return get_models_config().hyde
+
+
+@lru_cache(maxsize=1)
+def get_verification_config() -> VerificationConfig:
+    """Load and cache verification_rules.yaml."""
+    raw = _load_yaml(CONFIGS_DIR / "verification_rules.yaml")
+    return VerificationConfig(**raw)
