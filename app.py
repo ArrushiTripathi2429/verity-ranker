@@ -155,7 +155,7 @@ p,span,label,div{
     transform:translateY(-4px);
 
     box-shadow:
-      0 16px 45px rgba(139,92,246,.25);
+      0 16px 45px rgba(139,92,246,.25);z
 }
 
 /* Buttons */

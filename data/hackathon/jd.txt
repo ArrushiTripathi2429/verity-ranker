@@ -1,0 +1,25 @@
+Machine Learning Engineer
+
+We are hiring a Machine Learning Engineer to build production Python ML services.
+
+Required skills:
+- Python
+- Machine learning
+- FastAPI
+- Docker
+- Model evaluation
+- Testing
+
+Preferred skills:
+- Embeddings
+- Retrieval
+- SQL
+- Kubernetes
+
+Responsibilities:
+- Build and deploy ML inference APIs in production
+- Improve model evaluation pipelines
+- Collaborate with product teams to ship reliable services
+
+Seniority: Mid to Senior (3+ years)
+Domain: Machine learning / backend engineering

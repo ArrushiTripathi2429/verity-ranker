@@ -1,0 +1,30 @@
+team_name: "Verity Ranker"
+project_name: "Verity Ranker — Evidence-Backed Candidate Ranking"
+repository_url: "https://github.com/Eishaan-Khatri/verity-ranker"
+
+submission:
+  ranked_csv: "submission/ranked_output.csv"
+  reproduce_command: "python precompute.py --jd data/hackathon/jd.txt --candidates data/hackathon/candidates.jsonl --cache-dir cache && python rank.py --jd data/hackathon/jd.txt --candidates data/hackathon/candidates.jsonl --cache-dir cache --output submission/ranked_output.csv"
+  sandbox_command: "python rank.py --jd data/hackathon/jd.txt --candidates data/hackathon/candidates.jsonl --cache-dir cache --output submission/ranked_output.csv"
+  validate_command: "python scripts/validate_submission.py submission/ranked_output.csv"
+
+compute_constraints:
+  rank_script: "rank.py"
+  internet_required_for_rank: false
+  gpu_required: false
+  target_runtime_minutes: 5
+  target_memory_gb: 16
+
+ai_tools_declared:
+  - name: "OpenAI GPT-4o-mini"
+    usage: "Optional in precompute.py for JD intelligence only"
+    used_in_rank_script: false
+  - name: "Rule-based fallbacks"
+    usage: "Default offline extraction, scoring, and reasoning in rank.py"
+    used_in_rank_script: true
+
+architecture_notes:
+  - "Two-script design: precompute.py (heavy, once) + rank.py (sandbox, offline)"
+  - "No live GitHub crawling — github_activity_score used as proof feature"
+  - "Honeypot and keyword-stuffer guards down-rank suspicious profiles"
+  - "Engagement signals (last_active_date, recruiter_response_rate) applied as multipliers"
