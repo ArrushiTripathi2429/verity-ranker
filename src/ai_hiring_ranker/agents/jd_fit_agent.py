@@ -118,7 +118,7 @@ def _evaluate_rules(
         _PREF_WEIGHT * pref_score
     )
     # Domain nudge: ±0.05
-    combined = min(1.0, combined + (domain_score - 0.5) * 0.10)
+    combined = max(0.0, min(1.0, combined + (domain_score - 0.5) * 0.10))
 
     # Build flags
     flags: list[str] = []

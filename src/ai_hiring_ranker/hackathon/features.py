@@ -8,7 +8,7 @@ from typing import Any, Optional
 
 from ..agents.orchestrator import evaluate_candidate
 from ..candidate_extraction.extractor import extract_candidate_profile
-from ..candidate_extraction.schemas import SkillClaim, SkillConfidence
+from ..candidate_extraction.schemas import SkillClaim, SkillConfidence, CareerRole, EmploymentCategory
 from ..ingestion.schemas import CandidateInput
 from ..jd_intelligence.schemas import HiringProfile
 from ..retrieval.graph_retriever import get_matched_skills
@@ -23,8 +23,18 @@ from .dataset import (
     skills_list,
     years_experience,
 )
+from ..candidate_extraction.extractor import (
+    _compute_career_growth_signal,
+    _compute_leadership_signal,
+    _compute_production_signal,
+    _compute_achievement_signal,
+    _sentences,
+    _extract_achievements,
+)
+
 from .evidence import build_hackathon_ledger
 from .guards import honeypot_risk, keyword_stuffer_risk
+
 
 logger = logging.getLogger(__name__)
 
@@ -106,6 +116,41 @@ def build_features(
         raw_text=text or f"Skills: {', '.join(listed_skills)}. Title: {title}.",
     )
     profile = extract_candidate_profile(candidate_input, force_fallback=force_fallback)
+
+    # ── Override regex-guessed fields with real structured data ──────────────
+    career_history = record.get("career_history", [])
+    real_timeline: list[CareerRole] = []
+    for role in career_history:
+        duration_months = role.get("duration_months")
+        real_timeline.append(CareerRole(
+            title=role.get("title", "") or "",
+            company=role.get("company", "") or "",
+            start_year=int(role["start_date"][:4]) if role.get("start_date") else None,
+            end_year=int(role["end_date"][:4]) if role.get("end_date") else None,
+            duration_years=round(duration_months / 12, 2) if duration_months else None,
+            category=EmploymentCategory.FULL_TIME,
+        ))
+
+    description_text = " ".join(
+        role.get("description", "") or "" for role in career_history
+    )
+    anonymized_name = (record.get("profile", {}) or {}).get("anonymized_name")
+    if anonymized_name:
+        profile.name = str(anonymized_name).strip()
+
+    if real_timeline:
+
+     if real_timeline:
+        profile.career_timeline = real_timeline
+        profile.career_growth_signal = _compute_career_growth_signal(real_timeline)
+    if years is not None:
+        profile.total_years_experience = years
+    if description_text.strip():
+        profile.leadership_signal = _compute_leadership_signal(description_text)
+        profile.production_signal = _compute_production_signal(_sentences(description_text))
+        profile.achievement_signal = _compute_achievement_signal(
+            _extract_achievements(_sentences(description_text))
+        )
 
     if listed_skills:
         existing = {s.skill.lower() for s in profile.skills}

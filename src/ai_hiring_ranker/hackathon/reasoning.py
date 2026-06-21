@@ -75,7 +75,14 @@ def build_reasoning(
     if rank > 70 and not missing and not matched:
         parts.append("limited direct evidence for core JD requirements")
 
-    sentence = " ".join(parts)
+    
+    opener = parts[0]   # ends with ':'
+    clauses = parts[1:]
+    if clauses:
+        sentence = opener + " " + "; ".join(clauses) + "."
+    else:
+        sentence = opener + "."
+
     if len(sentence) > 480:
         sentence = sentence[:477] + "..."
     return sentence

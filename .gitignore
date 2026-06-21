@@ -12,3 +12,21 @@ outputs/final/*
 outputs/runs/*
 !outputs/runs/.gitkeep
 
+
+# Generated output files
+submission/ranked_output.csv
+outputs/hackathon_rank_test.csv
+
+# Logs
+precompute_log.txt
+
+# Candidate data files
+candidates.jsonl
+data/hackathon/candidates.jsonl
+
+# Cache folders
+cache/
+cache_test/
+outputs/hackathon_cache_test/
+
+outputs/*.csv
