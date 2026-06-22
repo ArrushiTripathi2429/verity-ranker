@@ -1,0 +1,61 @@
+{
+  "top_k": 100,
+  "population": 100000,
+  "tiers": {
+    "keyword_only": {
+      "off_domain_title_count": 0,
+      "self_disclosed_transition_count": 0,
+      "avg_honeypot_risk": 0.0,
+      "avg_stuffer_risk": 0.05
+    },
+    "skill_graph": {
+      "off_domain_title_count": 2,
+      "self_disclosed_transition_count": 3,
+      "avg_honeypot_risk": 0.0,
+      "avg_stuffer_risk": 0.061
+    },
+    "agent_rubric": {
+      "off_domain_title_count": 54,
+      "self_disclosed_transition_count": 90,
+      "avg_honeypot_risk": 0.0,
+      "avg_stuffer_risk": 0.007
+    },
+    "retrieval_blend": {
+      "off_domain_title_count": 55,
+      "self_disclosed_transition_count": 91,
+      "avg_honeypot_risk": 0.0,
+      "avg_stuffer_risk": 0.007
+    },
+    "full_pipeline": {
+      "off_domain_title_count": 0,
+      "self_disclosed_transition_count": 0,
+      "avg_honeypot_risk": 0.0,
+      "avg_stuffer_risk": 0.024
+    }
+  },
+  "consecutive_overlap": {
+    "keyword_only -> skill_graph": 0.005,
+    "skill_graph -> agent_rubric": 0.0,
+    "agent_rubric -> retrieval_blend": 0.835,
+    "retrieval_blend -> full_pipeline": 0.042
+  },
+  "keyword_vs_full_overlap": 0.0,
+  "keyword_vs_full_tau": -0.753,
+  "biggest_drops_keyword_to_full": [
+    {
+      "candidate_id": "CAND_0000406",
+      "full_pipeline_rank": 42193,
+      "candidate_name": "Deepak Pandey"
+    },
+    {
+      "candidate_id": "CAND_0000703",
+      "full_pipeline_rank": 31929,
+      "candidate_name": "Myra Sen"
+    },
+    {
+      "candidate_id": "CAND_0000570",
+      "full_pipeline_rank": 28804,
+      "candidate_name": "Deepak Mehta"
+    }
+  ]
+}

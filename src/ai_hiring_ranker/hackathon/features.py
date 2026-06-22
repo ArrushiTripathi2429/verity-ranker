@@ -90,6 +90,38 @@ def engagement_multiplier(
     return round(mult, 4)
 
 
+_TRANSITION_PHRASES = [
+    "transitioning toward", "transitioning to", "not the core of my day",
+    "not the core of my role", "interested in transitioning",
+    "looking to move into", "hoping to move into",
+    "while learning modern", "build competence on the",
+]
+
+
+def aspiring_transition_multiplier(record: dict, hiring_profile: HiringProfile) -> float:
+    """
+    Down-weight candidates who self-disclose that the JD's core domain is NOT
+    their current day-to-day work — mirrors the keyword-stuffer trap, but for
+    candidates whose skills list overlaps while their own words and current
+    title say the domain isn't their core competency yet.
+    """
+    profile = record.get("profile", {}) or {}
+    summary = (profile.get("summary") or "").lower()
+    current_title = (profile.get("current_title") or "").lower()
+
+    job_title_lower = (hiring_profile.job_title or "").lower()
+    jd_words = {
+        w for w in job_title_lower.split()
+        if len(w) > 3 and w not in {"senior", "junior", "engineer", "manager"}
+    }
+    title_overlaps = any(w in current_title for w in jd_words)
+    has_hedge = any(phrase in summary for phrase in _TRANSITION_PHRASES)
+
+    if has_hedge and not title_overlaps:
+        return 0.80
+    return 1.0
+
+
 def build_features(
     record: dict[str, Any],
     hiring_profile: HiringProfile,
@@ -139,8 +171,6 @@ def build_features(
         profile.name = str(anonymized_name).strip()
 
     if real_timeline:
-
-     if real_timeline:
         profile.career_timeline = real_timeline
         profile.career_growth_signal = _compute_career_growth_signal(real_timeline)
     if years is not None:
@@ -185,6 +215,7 @@ def build_features(
     honeypot, honeypot_flags = honeypot_risk(record)
     stuffer, stuffer_flags = keyword_stuffer_risk(record, hiring_profile.job_title)
     engagement = engagement_multiplier(inactive_days, response_rate)
+    transition_mult = aspiring_transition_multiplier(record, hiring_profile)
 
     dims = {
         "skill_fit": candidate_score.skill_fit,
@@ -208,6 +239,7 @@ def build_features(
     elif stuffer >= 0.20:
         final_score *= 0.85
     final_score *= engagement
+    final_score *= transition_mult
     final_score = round(max(0.0, min(100.0, final_score)), 4)
 
     missing_required = [
@@ -233,6 +265,7 @@ def build_features(
         honeypot_flags[0] if honeypot_flags else "",
         stuffer_flags[0] if stuffer_flags else "",
         "Low platform engagement" if engagement < 0.85 else "",
+        "Self-disclosed domain transition — core role not yet ML-focused" if transition_mult < 1.0 else "",
     ])
 
     return {
@@ -244,6 +277,7 @@ def build_features(
         "inactive_days": inactive_days,
         "response_rate": response_rate,
         "engagement_multiplier": engagement,
+        "transition_multiplier": transition_mult,
         "honeypot_risk": round(honeypot, 4),
         "stuffer_risk": round(stuffer, 4),
         "honeypot_flags": honeypot_flags,

@@ -1,0 +1,1761 @@
+{
+  "fairness": {
+    "overall_risk_level": "high",
+    "flags": [
+      {
+        "attribute": "institution_tier",
+        "value": "tier_1",
+        "k": 5,
+        "top_k_ratio": 0.4,
+        "baseline_ratio": 0.049,
+        "impact_ratio": 8.22,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0058146",
+          "CAND_0077296"
+        ]
+      },
+      {
+        "attribute": "institution_tier",
+        "value": "tier_1",
+        "k": 10,
+        "top_k_ratio": 0.4,
+        "baseline_ratio": 0.049,
+        "impact_ratio": 8.22,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0058146",
+          "CAND_0077296",
+          "CAND_0016268",
+          "CAND_0068892"
+        ]
+      },
+      {
+        "attribute": "institution_tier",
+        "value": "tier_1",
+        "k": 20,
+        "top_k_ratio": 0.4,
+        "baseline_ratio": 0.049,
+        "impact_ratio": 8.22,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0058146",
+          "CAND_0077296",
+          "CAND_0016268",
+          "CAND_0068892",
+          "CAND_0003100",
+          "CAND_0050876",
+          "CAND_0023215",
+          "CAND_0013456"
+        ]
+      },
+      {
+        "attribute": "institution_tier",
+        "value": "tier_1",
+        "k": 50,
+        "top_k_ratio": 0.36,
+        "baseline_ratio": 0.049,
+        "impact_ratio": 7.4,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0058146",
+          "CAND_0077296",
+          "CAND_0016268",
+          "CAND_0068892",
+          "CAND_0003100",
+          "CAND_0050876",
+          "CAND_0023215",
+          "CAND_0013456",
+          "CAND_0026716",
+          "CAND_0046064",
+          "CAND_0065195",
+          "CAND_0078810",
+          "CAND_0055992",
+          "CAND_0043958",
+          "CAND_0037944",
+          "CAND_0002025",
+          "CAND_0052027",
+          "CAND_0071974"
+        ]
+      },
+      {
+        "attribute": "institution_tier",
+        "value": "tier_1",
+        "k": 100,
+        "top_k_ratio": 0.31,
+        "baseline_ratio": 0.049,
+        "impact_ratio": 6.37,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0058146",
+          "CAND_0077296",
+          "CAND_0016268",
+          "CAND_0068892",
+          "CAND_0003100",
+          "CAND_0050876",
+          "CAND_0023215",
+          "CAND_0013456",
+          "CAND_0026716",
+          "CAND_0046064",
+          "CAND_0065195",
+          "CAND_0078810",
+          "CAND_0055992",
+          "CAND_0043958",
+          "CAND_0037944",
+          "CAND_0002025",
+          "CAND_0052027",
+          "CAND_0071974",
+          "CAND_0063853",
+          "CAND_0098846",
+          "CAND_0039754",
+          "CAND_0049831",
+          "CAND_0004555",
+          "CAND_0011687",
+          "CAND_0096142",
+          "CAND_0045027",
+          "CAND_0018499",
+          "CAND_0071894",
+          "CAND_0071821",
+          "CAND_0092706",
+          "CAND_0041669"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "coep pune",
+        "k": 5,
+        "top_k_ratio": 0.2,
+        "baseline_ratio": 0.019,
+        "impact_ratio": 10.7,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0017147"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "iiit bangalore",
+        "k": 5,
+        "top_k_ratio": 0.2,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 92.17,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0058146"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "uc berkeley",
+        "k": 5,
+        "top_k_ratio": 0.2,
+        "baseline_ratio": 0.003,
+        "impact_ratio": 79.37,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0077296"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "symbiosis international",
+        "k": 5,
+        "top_k_ratio": 0.2,
+        "baseline_ratio": 0.043,
+        "impact_ratio": 4.67,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0024170"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "bharati vidyapeeth",
+        "k": 5,
+        "top_k_ratio": 0.2,
+        "baseline_ratio": 0.042,
+        "impact_ratio": 4.75,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0074486"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "coep pune",
+        "k": 10,
+        "top_k_ratio": 0.1,
+        "baseline_ratio": 0.019,
+        "impact_ratio": 5.35,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0017147"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "iiit bangalore",
+        "k": 10,
+        "top_k_ratio": 0.1,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 46.08,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0058146"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "uc berkeley",
+        "k": 10,
+        "top_k_ratio": 0.1,
+        "baseline_ratio": 0.003,
+        "impact_ratio": 39.68,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0077296"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "symbiosis international",
+        "k": 10,
+        "top_k_ratio": 0.1,
+        "baseline_ratio": 0.043,
+        "impact_ratio": 2.33,
+        "severity": "warning",
+        "affected_ids": [
+          "CAND_0024170"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "bharati vidyapeeth",
+        "k": 10,
+        "top_k_ratio": 0.1,
+        "baseline_ratio": 0.042,
+        "impact_ratio": 2.37,
+        "severity": "warning",
+        "affected_ids": [
+          "CAND_0074486"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "iit guwahati",
+        "k": 10,
+        "top_k_ratio": 0.1,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 42.92,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0016268"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "nit trichy",
+        "k": 10,
+        "top_k_ratio": 0.1,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 43.48,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0068892"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "jadavpur university",
+        "k": 10,
+        "top_k_ratio": 0.1,
+        "baseline_ratio": 0.018,
+        "impact_ratio": 5.67,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0002344"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "chandigarh university",
+        "k": 10,
+        "top_k_ratio": 0.1,
+        "baseline_ratio": 0.042,
+        "impact_ratio": 2.38,
+        "severity": "warning",
+        "affected_ids": [
+          "CAND_0087783"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "coep pune",
+        "k": 20,
+        "top_k_ratio": 0.05,
+        "baseline_ratio": 0.019,
+        "impact_ratio": 2.67,
+        "severity": "warning",
+        "affected_ids": [
+          "CAND_0017147"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "iiit bangalore",
+        "k": 20,
+        "top_k_ratio": 0.1,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 46.08,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0058146",
+          "CAND_0013456"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "uc berkeley",
+        "k": 20,
+        "top_k_ratio": 0.1,
+        "baseline_ratio": 0.003,
+        "impact_ratio": 39.68,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0077296",
+          "CAND_0023215"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "iit guwahati",
+        "k": 20,
+        "top_k_ratio": 0.05,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 21.46,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0016268"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "nit trichy",
+        "k": 20,
+        "top_k_ratio": 0.05,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 21.74,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0068892"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "jadavpur university",
+        "k": 20,
+        "top_k_ratio": 0.05,
+        "baseline_ratio": 0.018,
+        "impact_ratio": 2.84,
+        "severity": "warning",
+        "affected_ids": [
+          "CAND_0002344"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "chandigarh university",
+        "k": 20,
+        "top_k_ratio": 0.1,
+        "baseline_ratio": 0.042,
+        "impact_ratio": 2.38,
+        "severity": "warning",
+        "affected_ids": [
+          "CAND_0087783",
+          "CAND_0066309"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "iiit hyderabad",
+        "k": 20,
+        "top_k_ratio": 0.05,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 20.24,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0003100"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "rv college of engineering",
+        "k": 20,
+        "top_k_ratio": 0.05,
+        "baseline_ratio": 0.018,
+        "impact_ratio": 2.8,
+        "severity": "warning",
+        "affected_ids": [
+          "CAND_0005649"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "stanford university",
+        "k": 20,
+        "top_k_ratio": 0.05,
+        "baseline_ratio": 0.003,
+        "impact_ratio": 19.46,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0050876"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "coep pune",
+        "k": 50,
+        "top_k_ratio": 0.1,
+        "baseline_ratio": 0.019,
+        "impact_ratio": 5.35,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0017147",
+          "CAND_0018454",
+          "CAND_0074339",
+          "CAND_0088025",
+          "CAND_0014909"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "iiit bangalore",
+        "k": 50,
+        "top_k_ratio": 0.06,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 27.65,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0058146",
+          "CAND_0013456",
+          "CAND_0002025"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "uc berkeley",
+        "k": 50,
+        "top_k_ratio": 0.04,
+        "baseline_ratio": 0.003,
+        "impact_ratio": 15.87,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0077296",
+          "CAND_0023215"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "iit guwahati",
+        "k": 50,
+        "top_k_ratio": 0.02,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 8.58,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0016268"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "nit trichy",
+        "k": 50,
+        "top_k_ratio": 0.02,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 8.7,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0068892"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "iiit hyderabad",
+        "k": 50,
+        "top_k_ratio": 0.06,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 24.29,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0003100",
+          "CAND_0078810",
+          "CAND_0052027"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "stanford university",
+        "k": 50,
+        "top_k_ratio": 0.04,
+        "baseline_ratio": 0.003,
+        "impact_ratio": 15.56,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0050876",
+          "CAND_0026716"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "vjti mumbai",
+        "k": 50,
+        "top_k_ratio": 0.04,
+        "baseline_ratio": 0.019,
+        "impact_ratio": 2.16,
+        "severity": "warning",
+        "affected_ids": [
+          "CAND_0066791",
+          "CAND_0073314"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "iit hyderabad",
+        "k": 50,
+        "top_k_ratio": 0.02,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 8.55,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0046064"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "iit bombay",
+        "k": 50,
+        "top_k_ratio": 0.04,
+        "baseline_ratio": 0.003,
+        "impact_ratio": 15.44,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0065195",
+          "CAND_0043958"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "nit surathkal",
+        "k": 50,
+        "top_k_ratio": 0.02,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 8.2,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0055992"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "delhi college of engineering",
+        "k": 50,
+        "top_k_ratio": 0.04,
+        "baseline_ratio": 0.018,
+        "impact_ratio": 2.16,
+        "severity": "warning",
+        "affected_ids": [
+          "CAND_0071205",
+          "CAND_0074731"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "iisc bangalore",
+        "k": 50,
+        "top_k_ratio": 0.02,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 8.03,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0037944"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "nit warangal",
+        "k": 50,
+        "top_k_ratio": 0.02,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 8.37,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0071974"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "coep pune",
+        "k": 100,
+        "top_k_ratio": 0.07,
+        "baseline_ratio": 0.019,
+        "impact_ratio": 3.74,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0017147",
+          "CAND_0018454",
+          "CAND_0074339",
+          "CAND_0088025",
+          "CAND_0014909",
+          "CAND_0083307",
+          "CAND_0072768"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "iiit bangalore",
+        "k": 100,
+        "top_k_ratio": 0.04,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 18.43,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0058146",
+          "CAND_0013456",
+          "CAND_0002025",
+          "CAND_0096142"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "uc berkeley",
+        "k": 100,
+        "top_k_ratio": 0.03,
+        "baseline_ratio": 0.003,
+        "impact_ratio": 11.9,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0077296",
+          "CAND_0023215",
+          "CAND_0045027"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "iit guwahati",
+        "k": 100,
+        "top_k_ratio": 0.03,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 12.88,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0016268",
+          "CAND_0071821",
+          "CAND_0041669"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "nit trichy",
+        "k": 100,
+        "top_k_ratio": 0.01,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 4.35,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0068892"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "iiit hyderabad",
+        "k": 100,
+        "top_k_ratio": 0.03,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 12.15,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0003100",
+          "CAND_0078810",
+          "CAND_0052027"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "stanford university",
+        "k": 100,
+        "top_k_ratio": 0.02,
+        "baseline_ratio": 0.003,
+        "impact_ratio": 7.78,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0050876",
+          "CAND_0026716"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "srm university",
+        "k": 100,
+        "top_k_ratio": 0.05,
+        "baseline_ratio": 0.018,
+        "impact_ratio": 2.75,
+        "severity": "warning",
+        "affected_ids": [
+          "CAND_0012632",
+          "CAND_0011643",
+          "CAND_0030953",
+          "CAND_0020726",
+          "CAND_0086154"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "vjti mumbai",
+        "k": 100,
+        "top_k_ratio": 0.04,
+        "baseline_ratio": 0.019,
+        "impact_ratio": 2.16,
+        "severity": "warning",
+        "affected_ids": [
+          "CAND_0066791",
+          "CAND_0073314",
+          "CAND_0026942",
+          "CAND_0091496"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "iit hyderabad",
+        "k": 100,
+        "top_k_ratio": 0.02,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 8.55,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0046064",
+          "CAND_0039754"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "iit bombay",
+        "k": 100,
+        "top_k_ratio": 0.04,
+        "baseline_ratio": 0.003,
+        "impact_ratio": 15.44,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0065195",
+          "CAND_0043958",
+          "CAND_0063853",
+          "CAND_0092706"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "nit surathkal",
+        "k": 100,
+        "top_k_ratio": 0.02,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 8.2,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0055992",
+          "CAND_0049831"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "iisc bangalore",
+        "k": 100,
+        "top_k_ratio": 0.01,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 4.02,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0037944"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "nit warangal",
+        "k": 100,
+        "top_k_ratio": 0.01,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 4.18,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0071974"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "iit kanpur",
+        "k": 100,
+        "top_k_ratio": 0.01,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 4.5,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0098846"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "iit roorkee",
+        "k": 100,
+        "top_k_ratio": 0.01,
+        "baseline_ratio": 0.003,
+        "impact_ratio": 3.72,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0004555"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "iit delhi",
+        "k": 100,
+        "top_k_ratio": 0.01,
+        "baseline_ratio": 0.003,
+        "impact_ratio": 3.97,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0011687"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "massachusetts institute of technology",
+        "k": 100,
+        "top_k_ratio": 0.01,
+        "baseline_ratio": 0.002,
+        "impact_ratio": 4.18,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0018499"
+        ]
+      },
+      {
+        "attribute": "institution_name",
+        "value": "iit kharagpur",
+        "k": 100,
+        "top_k_ratio": 0.01,
+        "baseline_ratio": 0.003,
+        "impact_ratio": 3.98,
+        "severity": "high",
+        "affected_ids": [
+          "CAND_0071894"
+        ]
+      }
+    ],
+    "graduation_year_tau": -0.005,
+    "population_size": 100000
+  },
+  "stability": {
+    "perturbation_runs": 5,
+    "method": "weight_jitter",
+    "pool_size": 300,
+    "evaluated_top_k": 100,
+    "stable_count": 6,
+    "unstable_count": 94,
+    "unstable_ids": [
+      "CAND_0016268",
+      "CAND_0068892",
+      "CAND_0002344",
+      "CAND_0087783",
+      "CAND_0088378",
+      "CAND_0003100",
+      "CAND_0001126",
+      "CAND_0014063",
+      "CAND_0088526",
+      "CAND_0005649",
+      "CAND_0050876",
+      "CAND_0023215",
+      "CAND_0045141",
+      "CAND_0013456",
+      "CAND_0066309",
+      "CAND_0012632",
+      "CAND_0036121",
+      "CAND_0026716",
+      "CAND_0066791",
+      "CAND_0046064",
+      "CAND_0038206",
+      "CAND_0049978",
+      "CAND_0065195",
+      "CAND_0078810",
+      "CAND_0030348",
+      "CAND_0052744",
+      "CAND_0029272",
+      "CAND_0028422",
+      "CAND_0073314",
+      "CAND_0055992",
+      "CAND_0043958",
+      "CAND_0071205",
+      "CAND_0037944",
+      "CAND_0002025",
+      "CAND_0018454",
+      "CAND_0073504",
+      "CAND_0052027",
+      "CAND_0071974",
+      "CAND_0000981",
+      "CAND_0074339",
+      "CAND_0072218",
+      "CAND_0088025",
+      "CAND_0074731",
+      "CAND_0013613",
+      "CAND_0014909",
+      "CAND_0083307",
+      "CAND_0015581",
+      "CAND_0026362",
+      "CAND_0095567",
+      "CAND_0063853",
+      "CAND_0098846",
+      "CAND_0033911",
+      "CAND_0011643",
+      "CAND_0039754",
+      "CAND_0063097",
+      "CAND_0067183",
+      "CAND_0029439",
+      "CAND_0049831",
+      "CAND_0073385",
+      "CAND_0026942",
+      "CAND_0082489",
+      "CAND_0004534",
+      "CAND_0091890",
+      "CAND_0051003",
+      "CAND_0004555",
+      "CAND_0011687",
+      "CAND_0096142",
+      "CAND_0045027",
+      "CAND_0002526",
+      "CAND_0072768",
+      "CAND_0073883",
+      "CAND_0017090",
+      "CAND_0018499",
+      "CAND_0098226",
+      "CAND_0080794",
+      "CAND_0071894",
+      "CAND_0010603",
+      "CAND_0026161",
+      "CAND_0077504",
+      "CAND_0030953",
+      "CAND_0061175",
+      "CAND_0071821",
+      "CAND_0092706",
+      "CAND_0041669",
+      "CAND_0058287",
+      "CAND_0018925",
+      "CAND_0091496",
+      "CAND_0001930",
+      "CAND_0020726",
+      "CAND_0018722",
+      "CAND_0086154",
+      "CAND_0016678",
+      "CAND_0095811",
+      "CAND_0020049"
+    ],
+    "candidate_stability": [
+      {
+        "candidate_id": "CAND_0017147",
+        "base_rank": 1,
+        "min_rank_observed": 1,
+        "max_rank_observed": 1,
+        "score_std": 0.383,
+        "is_stable": true
+      },
+      {
+        "candidate_id": "CAND_0058146",
+        "base_rank": 2,
+        "min_rank_observed": 2,
+        "max_rank_observed": 2,
+        "score_std": 0.309,
+        "is_stable": true
+      },
+      {
+        "candidate_id": "CAND_0077296",
+        "base_rank": 3,
+        "min_rank_observed": 3,
+        "max_rank_observed": 3,
+        "score_std": 0.322,
+        "is_stable": true
+      },
+      {
+        "candidate_id": "CAND_0024170",
+        "base_rank": 4,
+        "min_rank_observed": 5,
+        "max_rank_observed": 5,
+        "score_std": 0.328,
+        "is_stable": true
+      },
+      {
+        "candidate_id": "CAND_0074486",
+        "base_rank": 5,
+        "min_rank_observed": 6,
+        "max_rank_observed": 7,
+        "score_std": 0.431,
+        "is_stable": true
+      },
+      {
+        "candidate_id": "CAND_0016268",
+        "base_rank": 6,
+        "min_rank_observed": 8,
+        "max_rank_observed": 11,
+        "score_std": 0.367,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0068892",
+        "base_rank": 7,
+        "min_rank_observed": 14,
+        "max_rank_observed": 22,
+        "score_std": 0.456,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0002344",
+        "base_rank": 8,
+        "min_rank_observed": 8,
+        "max_rank_observed": 11,
+        "score_std": 0.551,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0087783",
+        "base_rank": 9,
+        "min_rank_observed": 13,
+        "max_rank_observed": 23,
+        "score_std": 0.612,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0088378",
+        "base_rank": 10,
+        "min_rank_observed": 13,
+        "max_rank_observed": 20,
+        "score_std": 0.447,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0003100",
+        "base_rank": 11,
+        "min_rank_observed": 6,
+        "max_rank_observed": 11,
+        "score_std": 0.817,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0001126",
+        "base_rank": 12,
+        "min_rank_observed": 19,
+        "max_rank_observed": 53,
+        "score_std": 1.334,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0014063",
+        "base_rank": 13,
+        "min_rank_observed": 20,
+        "max_rank_observed": 47,
+        "score_std": 1.161,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0088526",
+        "base_rank": 14,
+        "min_rank_observed": 17,
+        "max_rank_observed": 32,
+        "score_std": 0.585,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0005649",
+        "base_rank": 15,
+        "min_rank_observed": 23,
+        "max_rank_observed": 56,
+        "score_std": 0.623,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0050876",
+        "base_rank": 16,
+        "min_rank_observed": 13,
+        "max_rank_observed": 32,
+        "score_std": 1.185,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0023215",
+        "base_rank": 17,
+        "min_rank_observed": 21,
+        "max_rank_observed": 41,
+        "score_std": 0.382,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0045141",
+        "base_rank": 18,
+        "min_rank_observed": 26,
+        "max_rank_observed": 53,
+        "score_std": 0.643,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0013456",
+        "base_rank": 19,
+        "min_rank_observed": 15,
+        "max_rank_observed": 21,
+        "score_std": 0.54,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0066309",
+        "base_rank": 20,
+        "min_rank_observed": 42,
+        "max_rank_observed": 79,
+        "score_std": 0.609,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0012632",
+        "base_rank": 21,
+        "min_rank_observed": 32,
+        "max_rank_observed": 77,
+        "score_std": 1.34,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0036121",
+        "base_rank": 22,
+        "min_rank_observed": 49,
+        "max_rank_observed": 88,
+        "score_std": 0.597,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0026716",
+        "base_rank": 23,
+        "min_rank_observed": 23,
+        "max_rank_observed": 51,
+        "score_std": 1.129,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0066791",
+        "base_rank": 24,
+        "min_rank_observed": 8,
+        "max_rank_observed": 23,
+        "score_std": 1.047,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0046064",
+        "base_rank": 25,
+        "min_rank_observed": 30,
+        "max_rank_observed": 102,
+        "score_std": 0.85,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0038206",
+        "base_rank": 26,
+        "min_rank_observed": 28,
+        "max_rank_observed": 50,
+        "score_std": 0.412,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0049978",
+        "base_rank": 27,
+        "min_rank_observed": 36,
+        "max_rank_observed": 77,
+        "score_std": 0.621,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0065195",
+        "base_rank": 28,
+        "min_rank_observed": 39,
+        "max_rank_observed": 81,
+        "score_std": 0.673,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0078810",
+        "base_rank": 29,
+        "min_rank_observed": 18,
+        "max_rank_observed": 29,
+        "score_std": 0.784,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0030348",
+        "base_rank": 30,
+        "min_rank_observed": 16,
+        "max_rank_observed": 31,
+        "score_std": 0.932,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0052744",
+        "base_rank": 31,
+        "min_rank_observed": 19,
+        "max_rank_observed": 28,
+        "score_std": 0.717,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0029272",
+        "base_rank": 32,
+        "min_rank_observed": 42,
+        "max_rank_observed": 99,
+        "score_std": 1.349,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0028422",
+        "base_rank": 33,
+        "min_rank_observed": 51,
+        "max_rank_observed": 100,
+        "score_std": 1.108,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0073314",
+        "base_rank": 34,
+        "min_rank_observed": 25,
+        "max_rank_observed": 52,
+        "score_std": 0.655,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0055992",
+        "base_rank": 35,
+        "min_rank_observed": 65,
+        "max_rank_observed": 135,
+        "score_std": 0.778,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0043958",
+        "base_rank": 36,
+        "min_rank_observed": 36,
+        "max_rank_observed": 76,
+        "score_std": 1.146,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0071205",
+        "base_rank": 37,
+        "min_rank_observed": 22,
+        "max_rank_observed": 37,
+        "score_std": 0.65,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0037944",
+        "base_rank": 38,
+        "min_rank_observed": 74,
+        "max_rank_observed": 152,
+        "score_std": 0.799,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0002025",
+        "base_rank": 39,
+        "min_rank_observed": 49,
+        "max_rank_observed": 136,
+        "score_std": 0.76,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0018454",
+        "base_rank": 40,
+        "min_rank_observed": 25,
+        "max_rank_observed": 38,
+        "score_std": 0.865,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0073504",
+        "base_rank": 41,
+        "min_rank_observed": 13,
+        "max_rank_observed": 22,
+        "score_std": 0.615,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0052027",
+        "base_rank": 42,
+        "min_rank_observed": 24,
+        "max_rank_observed": 39,
+        "score_std": 0.891,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0071974",
+        "base_rank": 43,
+        "min_rank_observed": 59,
+        "max_rank_observed": 198,
+        "score_std": 1.022,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0000981",
+        "base_rank": 44,
+        "min_rank_observed": 54,
+        "max_rank_observed": 101,
+        "score_std": 0.657,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0074339",
+        "base_rank": 45,
+        "min_rank_observed": 26,
+        "max_rank_observed": 43,
+        "score_std": 0.908,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0072218",
+        "base_rank": 46,
+        "min_rank_observed": 14,
+        "max_rank_observed": 25,
+        "score_std": 0.658,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0088025",
+        "base_rank": 47,
+        "min_rank_observed": 23,
+        "max_rank_observed": 143,
+        "score_std": 1.301,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0074731",
+        "base_rank": 48,
+        "min_rank_observed": 45,
+        "max_rank_observed": 95,
+        "score_std": 1.327,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0013613",
+        "base_rank": 49,
+        "min_rank_observed": 87,
+        "max_rank_observed": 173,
+        "score_std": 0.817,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0014909",
+        "base_rank": 50,
+        "min_rank_observed": 94,
+        "max_rank_observed": 175,
+        "score_std": 0.715,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0083307",
+        "base_rank": 51,
+        "min_rank_observed": 82,
+        "max_rank_observed": 146,
+        "score_std": 1.128,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0015581",
+        "base_rank": 52,
+        "min_rank_observed": 44,
+        "max_rank_observed": 90,
+        "score_std": 0.625,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0026362",
+        "base_rank": 53,
+        "min_rank_observed": 17,
+        "max_rank_observed": 34,
+        "score_std": 0.896,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0095567",
+        "base_rank": 54,
+        "min_rank_observed": 63,
+        "max_rank_observed": 134,
+        "score_std": 0.664,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0063853",
+        "base_rank": 55,
+        "min_rank_observed": 147,
+        "max_rank_observed": 229,
+        "score_std": 0.894,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0098846",
+        "base_rank": 56,
+        "min_rank_observed": 93,
+        "max_rank_observed": 158,
+        "score_std": 1.061,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0033911",
+        "base_rank": 57,
+        "min_rank_observed": 57,
+        "max_rank_observed": 106,
+        "score_std": 1.138,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0011643",
+        "base_rank": 58,
+        "min_rank_observed": 88,
+        "max_rank_observed": 161,
+        "score_std": 0.54,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0039754",
+        "base_rank": 59,
+        "min_rank_observed": 48,
+        "max_rank_observed": 147,
+        "score_std": 0.889,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0063097",
+        "base_rank": 60,
+        "min_rank_observed": 85,
+        "max_rank_observed": 160,
+        "score_std": 0.655,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0067183",
+        "base_rank": 61,
+        "min_rank_observed": 29,
+        "max_rank_observed": 43,
+        "score_std": 0.756,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0029439",
+        "base_rank": 62,
+        "min_rank_observed": 27,
+        "max_rank_observed": 46,
+        "score_std": 0.926,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0049831",
+        "base_rank": 63,
+        "min_rank_observed": 104,
+        "max_rank_observed": 179,
+        "score_std": 0.83,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0073385",
+        "base_rank": 64,
+        "min_rank_observed": 35,
+        "max_rank_observed": 46,
+        "score_std": 0.809,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0026942",
+        "base_rank": 65,
+        "min_rank_observed": 114,
+        "max_rank_observed": 181,
+        "score_std": 1.381,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0082489",
+        "base_rank": 66,
+        "min_rank_observed": 73,
+        "max_rank_observed": 125,
+        "score_std": 1.145,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0004534",
+        "base_rank": 67,
+        "min_rank_observed": 76,
+        "max_rank_observed": 122,
+        "score_std": 0.547,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0091890",
+        "base_rank": 68,
+        "min_rank_observed": 123,
+        "max_rank_observed": 191,
+        "score_std": 1.144,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0051003",
+        "base_rank": 69,
+        "min_rank_observed": 43,
+        "max_rank_observed": 58,
+        "score_std": 0.684,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0004555",
+        "base_rank": 70,
+        "min_rank_observed": 49,
+        "max_rank_observed": 78,
+        "score_std": 0.935,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0011687",
+        "base_rank": 71,
+        "min_rank_observed": 67,
+        "max_rank_observed": 202,
+        "score_std": 0.868,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0096142",
+        "base_rank": 72,
+        "min_rank_observed": 126,
+        "max_rank_observed": 201,
+        "score_std": 1.213,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0045027",
+        "base_rank": 73,
+        "min_rank_observed": 40,
+        "max_rank_observed": 60,
+        "score_std": 0.866,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0002526",
+        "base_rank": 74,
+        "min_rank_observed": 71,
+        "max_rank_observed": 156,
+        "score_std": 0.796,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0072768",
+        "base_rank": 75,
+        "min_rank_observed": 28,
+        "max_rank_observed": 48,
+        "score_std": 0.8,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0073883",
+        "base_rank": 76,
+        "min_rank_observed": 84,
+        "max_rank_observed": 140,
+        "score_std": 1.143,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0017090",
+        "base_rank": 77,
+        "min_rank_observed": 67,
+        "max_rank_observed": 126,
+        "score_std": 0.667,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0018499",
+        "base_rank": 78,
+        "min_rank_observed": 111,
+        "max_rank_observed": 269,
+        "score_std": 0.997,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0091229",
+        "base_rank": 79,
+        "min_rank_observed": 4,
+        "max_rank_observed": 4,
+        "score_std": 0.345,
+        "is_stable": true
+      },
+      {
+        "candidate_id": "CAND_0098226",
+        "base_rank": 80,
+        "min_rank_observed": 46,
+        "max_rank_observed": 52,
+        "score_std": 0.64,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0080794",
+        "base_rank": 81,
+        "min_rank_observed": 71,
+        "max_rank_observed": 151,
+        "score_std": 0.799,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0071894",
+        "base_rank": 82,
+        "min_rank_observed": 67,
+        "max_rank_observed": 163,
+        "score_std": 1.824,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0010603",
+        "base_rank": 83,
+        "min_rank_observed": 101,
+        "max_rank_observed": 159,
+        "score_std": 1.159,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0026161",
+        "base_rank": 84,
+        "min_rank_observed": 84,
+        "max_rank_observed": 151,
+        "score_std": 1.487,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0077504",
+        "base_rank": 85,
+        "min_rank_observed": 44,
+        "max_rank_observed": 120,
+        "score_std": 1.759,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0030953",
+        "base_rank": 86,
+        "min_rank_observed": 63,
+        "max_rank_observed": 104,
+        "score_std": 1.246,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0061175",
+        "base_rank": 87,
+        "min_rank_observed": 59,
+        "max_rank_observed": 113,
+        "score_std": 1.471,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0071821",
+        "base_rank": 88,
+        "min_rank_observed": 48,
+        "max_rank_observed": 127,
+        "score_std": 1.759,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0092706",
+        "base_rank": 89,
+        "min_rank_observed": 116,
+        "max_rank_observed": 165,
+        "score_std": 1.158,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0041669",
+        "base_rank": 90,
+        "min_rank_observed": 163,
+        "max_rank_observed": 232,
+        "score_std": 1.267,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0058287",
+        "base_rank": 91,
+        "min_rank_observed": 45,
+        "max_rank_observed": 65,
+        "score_std": 0.807,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0018925",
+        "base_rank": 92,
+        "min_rank_observed": 117,
+        "max_rank_observed": 170,
+        "score_std": 1.155,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0091496",
+        "base_rank": 93,
+        "min_rank_observed": 106,
+        "max_rank_observed": 155,
+        "score_std": 1.371,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0001930",
+        "base_rank": 94,
+        "min_rank_observed": 61,
+        "max_rank_observed": 118,
+        "score_std": 0.594,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0020726",
+        "base_rank": 95,
+        "min_rank_observed": 61,
+        "max_rank_observed": 92,
+        "score_std": 0.834,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0018722",
+        "base_rank": 96,
+        "min_rank_observed": 112,
+        "max_rank_observed": 194,
+        "score_std": 1.135,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0086154",
+        "base_rank": 97,
+        "min_rank_observed": 57,
+        "max_rank_observed": 119,
+        "score_std": 1.562,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0016678",
+        "base_rank": 98,
+        "min_rank_observed": 115,
+        "max_rank_observed": 224,
+        "score_std": 0.771,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0095811",
+        "base_rank": 99,
+        "min_rank_observed": 97,
+        "max_rank_observed": 164,
+        "score_std": 1.5,
+        "is_stable": false
+      },
+      {
+        "candidate_id": "CAND_0020049",
+        "base_rank": 100,
+        "min_rank_observed": 54,
+        "max_rank_observed": 106,
+        "score_std": 0.972,
+        "is_stable": false
+      }
+    ]
+  }
+}
