@@ -1,0 +1,23 @@
+{
+  "version": "1.1",
+  "created_at": "2026-06-21T18:30:51.369015",
+  "jd_path": "C:\\Users\\hp\\Desktop\\verity-ranker\\verity-ranker\\data\\hackathon\\jd.txt",
+  "candidates_path": "C:\\Users\\hp\\Desktop\\verity-ranker\\verity-ranker\\candidates.jsonl",
+  "candidate_count": 100000,
+  "force_fallback": true,
+  "used_llm": false,
+  "job_title": "Machine Learning Engineer",
+  "cache_file": "candidate_features.jsonl",
+  "jd_cache_file": "jd_profile.json",
+  "hyde_cache_file": "hyde_profiles.json",
+  "layers_precomputed": [
+    "JD Intelligence",
+    "HyDE Ideal Profiles",
+    "Profile Extraction",
+    "Evidence Ledger (github_activity_score)",
+    "Multi-Agent Evaluation (rule-based)",
+    "Rubric Scoring",
+    "Honeypot / Stuffer / Engagement Guards"
+  ],
+  "elapsed_seconds": 1136.05
+}

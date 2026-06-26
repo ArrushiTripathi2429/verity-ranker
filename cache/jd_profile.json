@@ -1,0 +1,100 @@
+{
+  "job_title": "Machine Learning Engineer",
+  "seniority": "senior",
+  "employment_type": "unknown",
+  "domain": "Machine Learning",
+  "years_of_experience_min": 3,
+  "required_skills": [
+    {
+      "skill": "Machine Learning",
+      "is_required": true,
+      "is_preferred": false,
+      "context_snippet": "Machine Learning Engineer"
+    },
+    {
+      "skill": "Python",
+      "is_required": true,
+      "is_preferred": false,
+      "context_snippet": "We are hiring a Machine Learning Engineer to build production Python ML services."
+    },
+    {
+      "skill": "Production Engineering",
+      "is_required": true,
+      "is_preferred": false,
+      "context_snippet": "We are hiring a Machine Learning Engineer to build production Python ML services."
+    },
+    {
+      "skill": "Fastapi",
+      "is_required": true,
+      "is_preferred": false,
+      "context_snippet": "Required skills:\n- Python\n- Machine learning\n- FastAPI\n- Docker\n- Model evaluation\n- Testing"
+    },
+    {
+      "skill": "Docker",
+      "is_required": true,
+      "is_preferred": false,
+      "context_snippet": "Required skills:\n- Python\n- Machine learning\n- FastAPI\n- Docker\n- Model evaluation\n- Testing"
+    },
+    {
+      "skill": "Model Evaluation",
+      "is_required": true,
+      "is_preferred": false,
+      "context_snippet": "Required skills:\n- Python\n- Machine learning\n- FastAPI\n- Docker\n- Model evaluation\n- Testing"
+    },
+    {
+      "skill": "Testing",
+      "is_required": true,
+      "is_preferred": false,
+      "context_snippet": "Required skills:\n- Python\n- Machine learning\n- FastAPI\n- Docker\n- Model evaluation\n- Testing"
+    }
+  ],
+  "preferred_skills": [
+    {
+      "skill": "Kubernetes",
+      "is_required": false,
+      "is_preferred": true,
+      "context_snippet": "Preferred skills:\n- Embeddings\n- Retrieval\n- SQL\n- Kubernetes"
+    },
+    {
+      "skill": "Sql",
+      "is_required": false,
+      "is_preferred": true,
+      "context_snippet": "Preferred skills:\n- Embeddings\n- Retrieval\n- SQL\n- Kubernetes"
+    },
+    {
+      "skill": "Embeddings",
+      "is_required": false,
+      "is_preferred": true,
+      "context_snippet": "Preferred skills:\n- Embeddings\n- Retrieval\n- SQL\n- Kubernetes"
+    },
+    {
+      "skill": "Retrieval",
+      "is_required": false,
+      "is_preferred": true,
+      "context_snippet": "Preferred skills:\n- Embeddings\n- Retrieval\n- SQL\n- Kubernetes"
+    }
+  ],
+  "key_responsibilities": [
+    "We are hiring a Machine Learning Engineer to build production Python ML services.",
+    "Required skills:\n- Python\n- Machine learning\n- FastAPI\n- Docker\n- Model evaluation\n- Testing",
+    "Responsibilities:\n- Build and deploy ML inference APIs in production\n- Improve model evaluation pipelines\n- Collaborate with product teams to ship reliable services"
+  ],
+  "hidden_expectations": [
+    {
+      "description": "Candidate must understand production engineering practices (monitoring, alerting, scaling).",
+      "inferred_from": "production/deployment language in JD",
+      "confidence": 0.75
+    },
+    {
+      "description": "Candidate is expected to know API security, rate limiting, and error handling.",
+      "inferred_from": "API development responsibility",
+      "confidence": 0.75
+    },
+    {
+      "description": "Candidate needs strong written and verbal communication skills.",
+      "inferred_from": "team/collaboration language in JD",
+      "confidence": 0.75
+    }
+  ],
+  "ambiguity_flags": []
+}
