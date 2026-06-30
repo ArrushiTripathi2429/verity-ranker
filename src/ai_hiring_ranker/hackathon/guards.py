@@ -33,6 +33,11 @@ TITLE_MISMATCH_PAIRS = (
     (re.compile(r"\bjunior\b", re.I), 12.0),
 )
 
+CONSULTING_TRAP_COMPANIES = (
+    "tcs", "infosys", "wipro", "accenture", "cognizant", "capgemini",
+    "deloitte", "pwc", "kpmg", "ibm consulting", "mckinsey",
+)
+
 
 def buzzword_density(text: str) -> float:
     if not text:
@@ -43,10 +48,209 @@ def buzzword_density(text: str) -> float:
     return hits / words
 
 
+def _extract_career_history(record: dict[str, Any]) -> list[dict[str, Any]]:
+    """Safely extract career_history array from record."""
+    career = record.get("career_history", [])
+    if isinstance(career, list):
+        return career
+    return []
+
+
+def _extract_skills(record: dict[str, Any]) -> list[dict[str, Any]]:
+    """Safely extract skills array from record."""
+    skills = record.get("skills", [])
+    if isinstance(skills, list):
+        return skills
+    return []
+
+
+def _check_skill_duration_contradiction(skills: list[dict[str, Any]]) -> tuple[bool, str]:
+    """
+    CRITICAL HONEYPOT CHECK: "expert proficiency in 10 skills with 0 duration_months"
+    
+    Returns: (is_honeypot, reason)
+    """
+    expert_zero_duration = []
+    
+    for skill in skills:
+        if not isinstance(skill, dict):
+            continue
+        
+        proficiency = skill.get("proficiency", "").lower()
+        duration = skill.get("duration_months")
+        
+        # Expert level with 0 or missing duration = red flag
+        if proficiency == "expert":
+            try:
+                dur_val = float(duration) if duration is not None else 0
+                if dur_val == 0 or duration is None:
+                    expert_zero_duration.append(skill.get("name", "unknown"))
+            except (TypeError, ValueError):
+                # Can't parse duration, treat as 0
+                if duration is None or str(duration).strip() == "":
+                    expert_zero_duration.append(skill.get("name", "unknown"))
+    
+    if len(expert_zero_duration) >= 3:  # Multiple expert skills with no duration = honeypot
+        return True, f"Expert proficiency in {len(expert_zero_duration)} skills with 0 duration: {', '.join(expert_zero_duration[:5])}"
+    
+    return False, ""
+
+
+def _check_title_description_mismatch(career_history: list[dict[str, Any]]) -> tuple[bool, str]:
+    """
+    HONEYPOT CHECK: Role description contradicts job title.
+    E.g., "Marketing Manager" whose description talks about "Mechanical engineering design"
+    
+    Returns: (is_honeypot, reason)
+    """
+    mismatches = []
+    
+    for job in career_history:
+        if not isinstance(job, dict):
+            continue
+        
+        title = (job.get("title") or "").lower()
+        description = (job.get("description") or "").lower()
+        
+        if not title or not description:
+            continue
+        
+        # Extract domain keywords from title
+        title_keywords = set()
+        if any(kw in title for kw in ("marketing", "sales", "business", "management")):
+            title_keywords.add("business")
+        if any(kw in title for kw in ("engineer", "developer", "architect", "technical")):
+            title_keywords.add("engineering")
+        if any(kw in title for kw in ("design", "ui", "ux", "visual")):
+            title_keywords.add("design")
+        if any(kw in title for kw in ("data", "analytics", "analyst")):
+            title_keywords.add("data")
+        
+        # Extract domain keywords from description
+        description_keywords = set()
+        if any(kw in description for kw in ("mechanical", "civil", "structural", "thermodynamics")):
+            description_keywords.add("mechanical")
+        if any(kw in description for kw in ("marketing", "campaign", "brand", "outreach")):
+            description_keywords.add("marketing")
+        if any(kw in description for kw in ("engineering", "design", "build", "develop")):
+            description_keywords.add("engineering")
+        
+        # Check for contradictions: if title says "marketing" but description says "mechanical engineering"
+        if title_keywords and description_keywords:
+            if title_keywords.isdisjoint(description_keywords):
+                mismatches.append(f"Title '{job.get('title')}' ≠ Description domain")
+    
+    if len(mismatches) >= 2:
+        return True, f"Multiple title-description mismatches: {'; '.join(mismatches[:3])}"
+    
+    return False, ""
+
+
+def _check_company_tenure_impossibility(career_history: list[dict[str, Any]]) -> tuple[bool, list[str]]:
+    """
+    HONEYPOT CHECK: "8 years at company founded 3 years ago"
+    
+    Requires cross-checking start_date and duration against company founding dates.
+    We implement a simplified version: if duration_months > (now - start_date),
+    it's impossible.
+    
+    Returns: (is_impossible, list_of_issues)
+    """
+    from datetime import datetime
+    
+    issues = []
+    now = datetime.now()
+    
+    for job in career_history:
+        if not isinstance(job, dict):
+            continue
+        
+        duration = job.get("duration_months")
+        start_date = job.get("start_date")  # Assume ISO format or similar
+        
+        if duration is None or start_date is None:
+            continue
+        
+        try:
+            duration_months = float(duration)
+            
+            # Try to parse start_date (simple heuristic: if it's a string like "2020-01", extract year)
+            if isinstance(start_date, str):
+                # Extract year from start_date (e.g., "2020-01" or "2020")
+                year_match = re.search(r"(20\d{2})", start_date)
+                if year_match:
+                    start_year = int(year_match.group(1))
+                    current_year = now.year
+                    max_possible_months = (current_year - start_year) * 12
+                    
+                    if duration_months > max_possible_months + 12:  # Allow 1 year buffer
+                        issues.append(
+                            f"Job at '{job.get('company', 'unknown')}' claims {duration_months} months "
+                            f"starting {start_year}, but only {max_possible_months} months could have elapsed"
+                        )
+        except (TypeError, ValueError):
+            continue
+    
+    return len(issues) >= 1, issues
+
+
+def _check_summary_vs_career_mismatch(record: dict[str, Any], career_history: list[dict[str, Any]]) -> tuple[bool, str]:
+    """
+    HONEYPOT CHECK: Summary says "marketing manager roles" but actual titles are "Accountant"
+    
+    Returns: (is_honeypot, reason)
+    """
+    summary = (record.get("summary") or "").lower()
+    
+    if not summary or len(summary) < 20:
+        return False, ""
+    
+    # Extract role keywords from summary
+    summary_roles = set()
+    if any(kw in summary for kw in ("manager", "lead", "head")):
+        summary_roles.add("management")
+    if any(kw in summary for kw in ("engineer", "developer", "architect")):
+        summary_roles.add("engineering")
+    if any(kw in summary for kw in ("marketing", "sales", "business")):
+        summary_roles.add("business")
+    if any(kw in summary for kw in ("data", "analytics", "scientist")):
+        summary_roles.add("data")
+    if any(kw in summary for kw in ("accountant", "finance", "accounting")):
+        summary_roles.add("finance")
+    
+    # Extract actual job titles
+    actual_titles = []
+    for job in career_history:
+        if isinstance(job, dict):
+            title = (job.get("title") or "").lower()
+            if title:
+                actual_titles.append(title)
+    
+    # Check for contradictions
+    if summary_roles and actual_titles:
+        # Extract role types from actual titles
+        title_roles = set()
+        for title in actual_titles:
+            if any(kw in title for kw in ("accountant", "finance", "accounting", "cfo", "cpa")):
+                title_roles.add("finance")
+            if any(kw in title for kw in ("engineer", "developer", "architect")):
+                title_roles.add("engineering")
+            if any(kw in title for kw in ("manager", "lead", "head", "director")):
+                title_roles.add("management")
+        
+        # If summary claims one domain but titles show different domain
+        if summary_roles and title_roles and summary_roles.isdisjoint(title_roles):
+            return True, f"Summary claims {summary_roles} but actual titles are {title_roles}"
+    
+    return False, ""
+
+
 def honeypot_risk(record: dict[str, Any]) -> tuple[float, list[str]]:
     """Return risk score 0-1 and human-readable flags.
     
     Combines heuristic checks with behavioral signal contradictions.
+    NOW INCLUDES: skill duration contradictions, title-description mismatches,
+    company tenure impossibilities, summary-career mismatches.
     """
     from .dataset import (
         profile_completeness,
@@ -62,7 +266,37 @@ def honeypot_risk(record: dict[str, Any]) -> tuple[float, list[str]]:
     flags: list[str] = []
     risk = 0.0
     
-    # ─── Heuristic checks ───────────────────────────────────────
+    # ─── NEW HONEYPOT CHECKS (from gap analysis) ───────────────
+    
+    # CHECK 1: Skill proficiency vs duration contradiction
+    career = _extract_career_history(record)
+    skills_array = _extract_skills(record)
+    
+    is_skill_trap, reason = _check_skill_duration_contradiction(skills_array)
+    if is_skill_trap:
+        risk += 0.40
+        flags.append(f"🔴 {reason}")
+    
+    # CHECK 2: Title vs Description mismatch in career history
+    is_title_mismatch, reason = _check_title_description_mismatch(career)
+    if is_title_mismatch:
+        risk += 0.35
+        flags.append(f"🔴 {reason}")
+    
+    # CHECK 3: Company tenure impossibility
+    is_tenure_impossible, tenure_issues = _check_company_tenure_impossibility(career)
+    if is_tenure_impossible:
+        risk += 0.35
+        for issue in tenure_issues:
+            flags.append(f"🔴 {issue}")
+    
+    # CHECK 4: Summary vs career title contradiction
+    is_summary_mismatch, reason = _check_summary_vs_career_mismatch(record, career)
+    if is_summary_mismatch:
+        risk += 0.30
+        flags.append(f"🔴 {reason}")
+    
+    # ─── ORIGINAL HEURISTIC CHECKS ───────────────────────────────
     lowered = text.lower()
     for phrase in IMPOSSIBLE_PHRASES:
         if phrase in lowered:
@@ -97,7 +331,7 @@ def honeypot_risk(record: dict[str, Any]) -> tuple[float, list[str]]:
     except (TypeError, ValueError):
         pass
 
-    # ─── Behavioral signal contradictions ───────────────────────
+    # ─── BEHAVIORAL SIGNAL CONTRADICTIONS ───────────────────────
     completeness = profile_completeness(record)
     if completeness is not None and len(skills) > 10 and completeness < 0.3:
         risk += 0.25
@@ -146,5 +380,18 @@ def keyword_stuffer_risk(record: dict[str, Any], jd_title: str = "") -> tuple[fl
         if title and jd_tokens and len(overlap) == 0:
             risk += 0.10
             flags.append(f"job title '{title}' does not align with JD title '{jd_title}'")
+
+    # NEW: Consulting-only career trap
+    career = _extract_career_history(record)
+    consulting_count = 0
+    for job in career:
+        if isinstance(job, dict):
+            company = (job.get("company") or "").lower()
+            if any(trap in company for trap in CONSULTING_TRAP_COMPANIES):
+                consulting_count += 1
+    
+    if consulting_count >= len(career) >= 3:  # All jobs are at consulting firms
+        risk += 0.25
+        flags.append(f"Career history exclusively at consulting firms ({consulting_count}/{len(career)})")
 
     return min(1.0, risk), flags

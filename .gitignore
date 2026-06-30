@@ -17,7 +17,7 @@ outputs/runs/*
 submission/ranked_output.csv
 outputs/hackathon_rank_test.csv
 submission/ranked_output_BEFORE.csv
-
+outputs/ranked_ouput.xlsx
 # Logs
 precompute_log.txt
 

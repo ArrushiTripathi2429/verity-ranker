@@ -32,6 +32,25 @@ def _safe_float(value: Any, default: float = 0.0) -> float:
         return default
 
 
+def _safe_int(value: Any, default: int = 0) -> int:
+    """Null-safe int coercion."""
+    if value is None:
+        return default
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return default
+
+
+def _safe_bool(value: Any, default: bool = False) -> bool:
+    """Null-safe bool coercion."""
+    if value is None:
+        return default
+    if isinstance(value, bool):
+        return value
+    return str(value).lower() in ("true", "1", "yes")
+
+
 def _score_value(row: dict[str, Any]) -> float:
     val = row.get("final_score")
     if val is None:
@@ -43,17 +62,59 @@ def _listwise_sort_key(row: dict[str, Any]) -> tuple:
     """
     Rule-based listwise tie-break (Layer 11 offline).
 
-    Uses full-precision score plus cached dimensions to compare candidates.
+    Uses full-precision score plus cached dimensions + location + disqualifiers.
     """
     dims = row.get("dimensions") or {}
+    
+    # Location matching (JD prefers Pune/Noida)
+    location = (row.get("location") or "").lower()
+    PREFERRED_LOCATIONS = {"pune", "noida", "delhi", "ncr", "gurgaon", "gurugram", "hyderabad"}
+    location_penalty = 0 if any(city in location for city in PREFERRED_LOCATIONS) else 1
+    
+    # Disqualifiers: if any critical issue exists, push to bottom
+    disqualifiers = row.get("disqualifiers") or []
+    has_critical_disqualifier = len(disqualifiers) > 0
+    
+    # Open to work (JD wants candidates actively seeking)
+    open_to_work = _safe_bool(row.get("open_to_work"), True)  # Default True if missing
+    
+    # Behavioral signals: offer acceptance rate (low = flight risk)
+    offer_acceptance = _safe_float(row.get("offer_acceptance_rate"), 1.0)
+    
+    # Notice period: prefer short notice
+    notice_days = _safe_int(row.get("notice_period_days"), 30)
+    
+    # Response time: prefer fast responders
+    response_time = _safe_float(row.get("avg_response_time_hours"), 999)
+    
     return (
+        # Primary: score (descending)
         -_score_value(row),
-        -_safe_float(dims.get("proof_strength")),
-        -_safe_float(dims.get("skill_fit")),
-        -_safe_float(dims.get("seniority_match")),
-        -_safe_float(dims.get("career_growth")),
-        -_safe_float(dims.get("experience_depth")),
-        -_safe_float(row.get("github_activity_score")),
+        # Secondary: no critical disqualifiers
+        has_critical_disqualifier,
+        # Tertiary: proof strength dimension
+        -_safe_float(dims.get("proof_strength"), 0.0),
+        # Skill fit
+        -_safe_float(dims.get("skill_fit"), 0.0),
+        # Behavioral: open to work
+        open_to_work,  # True sorts before False
+        # Behavioral: notice period (prefer short)
+        notice_days,
+        # Behavioral: response time (prefer fast)
+        response_time,
+        # Behavioral: offer acceptance rate (higher is better)
+        -offer_acceptance,
+        # Location preference
+        location_penalty,
+        # Seniority match
+        -_safe_float(dims.get("seniority_match"), 0.0),
+        # Career growth
+        -_safe_float(dims.get("career_growth"), 0.0),
+        # Experience depth
+        -_safe_float(dims.get("experience_depth"), 0.0),
+        # GitHub activity
+        -_safe_float(row.get("github_activity_score"), 0.0),
+        # Tie-break by ID
         str(row.get("candidate_id", "")),
     )
 
@@ -73,9 +134,9 @@ def rank_candidates(
     """
     Sort candidates and return exactly ``top_k`` submission rows.
 
-    1. Listwise re-rank a shortlist pool (Layer 11, offline rules).
+    1. Listwise re-rank a shortlist pool (Layer 11, offline rules with location + disqualifiers).
     2. Re-order by displayed score + candidate_id tie-break for validator compliance.
-    3. Assign ranks 1..top_k with fact-grounded reasoning.
+    3. Assign ranks 1..top_k with fact-grounded, JD-specific reasoning.
     """
     all_rows = list(features)
     pool_size = max(top_k, listwise_pool)
